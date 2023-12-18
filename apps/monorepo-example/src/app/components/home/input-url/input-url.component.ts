@@ -8,7 +8,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { MyErrorStateMatcher } from '../repos-dashboard/validator';
+import { MyErrorStateMatcher } from './validator';
 
 
 @Component({
@@ -32,7 +32,6 @@ export class InputUrlComponent {
   matcher = new MyErrorStateMatcher();
   @Output() setURL: EventEmitter<string> = new EventEmitter<string>();
   searchRepo($event: any){
-    console.log("to send", this.repoFormControl.value )
     this.setURL.emit(this.repoFormControl.value ?? "");
   }
 }
