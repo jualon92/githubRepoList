@@ -1,6 +1,15 @@
 {
   "HEADER":{
     "TITLE":"Title"
+  },
+  "REPO_SEARCH":{
+    "LABEL": "Set URL",
+    "SEARCH": "Search",
+    "ERROR": {
+      "INVALID_URL": "Invalid URL",
+      "URL_REQUIRED": "URL is required"
+      }
+
   }
 
 }
