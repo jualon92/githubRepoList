@@ -7,57 +7,30 @@
 
 ## Start the app
 
-To start the development server run `nx serve monorepo-example`. Open your browser and navigate to http://localhost:4200/. Happy coding!
+To start the development server run `nx serve monorepo-example`. Open your browser and navigate to http://localhost:4200/. 
+
+## How does it work?
+To retrieve a list of all repositories for a specific user, get the user github repo url. 
+
+https://api.github.com/users/[username]/repos
+
+eg: https://api.github.com/users/schacon/repos
 
 
-## Generate code
+## Test code
 
-If you happen to use Nx plugins, you can leverage code generators that might come with it.
+To run the test suite, run ```nx test```
 
-Run `nx list` to get a list of available plugins and whether they have generators. Then run `nx list <plugin-name>` to see what generators are available.
+## i18n
+Translate files are located in assets/i18n/
 
-Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-code-generators).
-
-## Running tasks
-
-To execute tasks with Nx use the following syntax:
-
-```
-nx <target> <project> <...options>
-```
-
-You can also run multiple targets:
-
-```
-nx run-many -t <target1> <target2>
-```
-
-..or add `-p` to filter specific projects
-
-```
-nx run-many -t <target1> <target2> -p <proj1> <proj2>
-```
-
-Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/core-features/run-tasks).
-
-## Want better Editor Integration?
-
-Have a look at the [Nx Console extensions](https://nx.dev/nx-console). It provides autocomplete support, a UI for exploring and running tasks & generators, and more! Available for VSCode, IntelliJ and comes with a LSP for Vim users.
 
 ## Ready to deploy?
 
-Just run `nx build demoapp` to build the application. The build artifacts will be stored in the `dist/` directory, ready to be deployed.
+Just run `nx build monorepo-example` to build the application. The build artifacts will be stored in the `dist/` directory, ready to be deployed.
 
-## Set up CI!
+## PWA / Offline capacibility
+After building, check offline first capability with 
+```npx http-server -p 8080 -c-1 dist/apps/angular-monorepo```
 
-Nx comes with local caching already built-in (check your `nx.json`). On CI you might want to go a step further.
 
-- [Set up remote caching](https://nx.dev/core-features/share-your-cache)
-- [Set up task distribution across multiple machines](https://nx.dev/nx-cloud/features/distribute-task-execution)
-- [Learn more how to setup CI](https://nx.dev/recipes/ci)
-
-## Connect with us!
-
-- [Join the community](https://nx.dev/community)
-- [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
-- [Follow us on Twitter](https://twitter.com/nxdevtools)
