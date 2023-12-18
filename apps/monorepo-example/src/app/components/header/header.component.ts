@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { languages } from './header.entity';
+import { languages } from './header.entities';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';

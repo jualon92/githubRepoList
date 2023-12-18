@@ -1,0 +1,15 @@
+{
+  "HEADER":{
+    "TITLE":"kualifikazioa"
+  },
+  "REPO_SEARCH":{
+    "LABEL": "Sartu url",
+    "SEARCH": "Bilatu",
+    "ERROR": {
+      "INVALID_URL": "URL baliogabea",
+      "URL_REQUIRED": "Beharrezko URLa"
+      }
+
+  }
+
+}
