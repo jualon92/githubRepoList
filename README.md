@@ -6,7 +6,7 @@
 
 
 ## Start the app
-
+First, run npm i to install the required dependencies.
 To start the development server run `nx serve monorepo-example`. Open your browser and navigate to http://localhost:4200/. 
 
 ## How does it work?
