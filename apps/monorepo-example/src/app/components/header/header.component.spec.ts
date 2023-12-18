@@ -33,5 +33,15 @@ describe('HeaderComponent', () => {
 
   }))
 
+  it("changing lang should affect title",  inject([TranslateService], (translateService: TranslateService)  =>  {
+    translateService.setDefaultLang('es');
+    const fixture = TestBed.createComponent(HeaderComponent);
+    component.changeLang("en")
+    fixture.detectChanges();
+    const updatedTitleContent = fixture.nativeElement.querySelector('#header-title').textContent.trim();
+    expect(updatedTitleContent).toContain('Title');
+
+  }))
+
 
 });

@@ -5,10 +5,11 @@
     </span>
     <span class="header-spacer"></span>
     <div id="lang-btn">
-
-        <button  id="lang-btn-es" (click)="changeLang(languages.ES)" mat-menu-item>Spanish</button>
-        <button  (click)="changeLang(languages.EN)" mat-menu-item>English</button>
-
+      <button mat-raised-button color="secondary" [matMenuTriggerFor]="menu" aria-label="Change language button">Change Language</button>
+      <mat-menu #menu="matMenu">
+        <button (click)="changeLang(languages.ES)" mat-menu-item>Spanish</button>
+        <button (click)="changeLang(languages.EN)" mat-menu-item>English</button>
+      </mat-menu>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
