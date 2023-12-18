@@ -1,9 +1,16 @@
 <mat-toolbar color="primary">
-    TITULO
-  <button color="secondary" mat-button [matMenuTriggerFor]="menu">Cambiar Idioma</button>
-<mat-menu #menu="matMenu">
-  <button (click)="changeLang('es')"  mat-menu-item>Item 1</button>
-  <button (click)="changeLang('en')"  mat-menu-item>Item 2</button>
-</mat-menu>
+  <mat-toolbar-row>
+    <span id="header-title">
+      {{ 'HEADER.TITLE' | translate}}
+    </span>
+    <span class="header-spacer"></span>
+    <div id="lang-btn">
+      <button mat-raised-button color="secondary" [matMenuTriggerFor]="menu" aria-label="Change language button">Change Language</button>
+      <mat-menu #menu="matMenu" >
+        <button (click)="changeLang(languages.ES)" mat-menu-item>Spanish</button>
+        <button (click)="changeLang(languages.EN)" mat-menu-item>English</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
 
