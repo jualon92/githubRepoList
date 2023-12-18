@@ -18,6 +18,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { InputUrlComponent } from '../input-url/input-url.component';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'angular-monorepo-repos-dashboard',
   standalone: true,
@@ -63,6 +64,7 @@ export class ReposDashboardComponent implements AfterViewInit {
 
   userUrl: string = '';
   loadingData: boolean = false;
+  repoSubscription: Subscription = new Subscription();
 
   constructor(
     private reposDashboardService: ReposDashboardService,
@@ -75,7 +77,7 @@ export class ReposDashboardComponent implements AfterViewInit {
 
   searchRepo(url: string) {
 
-    this.reposDashboardService
+    this.repoSubscription = this.reposDashboardService
       .getRepos(url)
       .pipe(
         catchError((err) => {
@@ -86,8 +88,7 @@ export class ReposDashboardComponent implements AfterViewInit {
       )
       .subscribe((data: any) => {
 
-
-        const list = data.map((item: any) => ({
+        this.dataSource.data  = data.map((item: any) => ({
           id: item.id,
           name: item.name,
           private: item.private,
@@ -101,12 +102,15 @@ export class ReposDashboardComponent implements AfterViewInit {
           watchers: item.watchers,
           allowForking: item.allow_forking,
         }));
-        // Update the MatTableDataSource with the new data
-        this.dataSource.data = list;
+
         // Set up the paginator
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.loadingData = false;
       });
+  }
+
+  onDestroy(){
+    this.repoSubscription.unsubscribe();
   }
 }
