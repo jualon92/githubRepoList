@@ -102,7 +102,6 @@ export class ReposDashboardComponent implements AfterViewInit {
           watchers: item.watchers,
           allowForking: item.allow_forking,
         }));
-
         // Set up the paginator
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+
 describe('ReposDashboardComponent', () => {
   let component: ReposDashboardComponent;
   let fixture: ComponentFixture<ReposDashboardComponent>;
@@ -21,4 +22,15 @@ describe('ReposDashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should display loading spinner when loadingData is true', () => {
+    component.loadingData = true;
+    fixture.detectChanges();
+
+    // Test if the loading spinner is rendsered
+    const spinnerElement = fixture.nativeElement.querySelector('.spinner-container mat-spinner');
+    expect(spinnerElement).toBeTruthy();
+  });
+
 });
