@@ -8,19 +8,26 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/monorepo-example",
         "index": "apps/monorepo-example/src/index.html",
         "browser": "apps/monorepo-example/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/monorepo-example/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/monorepo-example/src/favicon.ico",
           "apps/monorepo-example/src/assets"
         ],
-        "styles": ["apps/monorepo-example/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "apps/monorepo-example/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -67,11 +74,15 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/monorepo-example/jest.config.ts"
       }
