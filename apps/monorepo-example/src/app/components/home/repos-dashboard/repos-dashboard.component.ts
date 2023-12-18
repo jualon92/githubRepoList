@@ -1,15 +1,11 @@
 import { ReposDashboardService } from './repos-dashboard.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  FormControl,
   FormsModule,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
-
-import { MyErrorStateMatcher } from './validator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -43,7 +39,7 @@ import { InputUrlComponent } from '../input-url/input-url.component';
   styleUrl: './repos-dashboard.component.scss',
   providers: [ReposDashboardService],
 })
-export class ReposDashboardComponent {
+export class ReposDashboardComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   title = 'angular-monorepo';
@@ -66,8 +62,6 @@ export class ReposDashboardComponent {
   >();
 
   userUrl: string = '';
-  repoFormControl = new FormControl('', [Validators.required]);
-  matcher = new MyErrorStateMatcher();
   loadingData: boolean = false;
 
   constructor(
@@ -79,14 +73,10 @@ export class ReposDashboardComponent {
     this.dataSource.paginator = this.paginator;
   }
 
-  searchRepo($event: Event) {
-    console.log($event)
-    /* if (this.repoFormControl.invalid) {
-      return;
-    }
+  searchRepo(url: string) {
 
     this.reposDashboardService
-      .getRepos(this.repoFormControl?.value ?? '')
+      .getRepos(url)
       .pipe(
         catchError((err) => {
           this.loadingData = false;
@@ -95,8 +85,7 @@ export class ReposDashboardComponent {
         })
       )
       .subscribe((data: any) => {
-        // Success handling
-        console.log('data', data);
+
 
         const list = data.map((item: any) => ({
           id: item.id,
@@ -112,13 +101,12 @@ export class ReposDashboardComponent {
           watchers: item.watchers,
           allowForking: item.allow_forking,
         }));
-
         // Update the MatTableDataSource with the new data
         this.dataSource.data = list;
         // Set up the paginator
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.loadingData = false;
-      }); */
+      });
   }
 }

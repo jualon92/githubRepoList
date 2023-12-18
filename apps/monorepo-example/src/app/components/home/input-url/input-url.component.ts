@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,8 +30,9 @@ import { MyErrorStateMatcher } from '../repos-dashboard/validator';
 export class InputUrlComponent {
   repoFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
-  setURL: EventEmitter<string> = new EventEmitter<string>();
+  @Output() setURL: EventEmitter<string> = new EventEmitter<string>();
   searchRepo($event: any){
+    console.log("to send", this.repoFormControl.value )
     this.setURL.emit(this.repoFormControl.value ?? "");
   }
 }

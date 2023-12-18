@@ -2,7 +2,7 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>{{ 'REPO_SEARCH.LABEL' | translate }}</mat-label>
-    <input [formControl]="repoFormControl"  [errorStateMatcher]="matcher" matInput placeholder="Ex. github.com/url" #urlInput name="url"     >
+    <input [formControl]="repoFormControl"  [errorStateMatcher]="matcher" matInput placeholder="ej: api.github.com/users/schacon/repos" #urlInput name="url"     >
     @if (repoFormControl.hasError('required')) {
       <mat-error> {{ 'REPO_SEARCH.ERROR.URL_REQUIRED' | translate }} </mat-error>
     }
