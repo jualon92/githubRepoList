@@ -1,1 +1,9 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+    TITULO
+  <button color="secondary" mat-button [matMenuTriggerFor]="menu">Cambiar Idioma</button>
+<mat-menu #menu="matMenu">
+  <button (click)="changeLang('es')"  mat-menu-item>Item 1</button>
+  <button (click)="changeLang('en')"  mat-menu-item>Item 2</button>
+</mat-menu>
+</mat-toolbar>
+
