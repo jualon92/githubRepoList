@@ -33,7 +33,7 @@ Just run `nx build monorepo-example` to build the application. The build artifac
 After building, check offline first capability with 
 ```npx http-server -p 8080 -c-1 dist/apps/angular-monorepo```
 
-##Tool used
+## Tool used
 - angular material
 - @angular/pwa
 - ngx translate + ngx translate testing
