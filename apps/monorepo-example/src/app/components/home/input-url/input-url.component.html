@@ -1,0 +1,12 @@
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>{{ 'REPO_SEARCH.LABEL' | translate }}</mat-label>
+    <input [formControl]="repoFormControl"  [errorStateMatcher]="matcher" matInput placeholder="Ex. github.com/url" #urlInput name="url"     >
+    @if (repoFormControl.hasError('required')) {
+      <mat-error> {{ 'REPO_SEARCH.ERROR.URL_REQUIRED' | translate }} </mat-error>
+    }
+   </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchRepo($event)">{{ 'REPO_SEARCH.SEARCH' | translate }}</button>
+</form>
+
